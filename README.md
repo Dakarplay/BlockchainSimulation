@@ -16,7 +16,7 @@ Este proyecto es una **simulación básica de una blockchain** desarrollada en J
 ## 📁 Estructura del Proyecto
 
 ```
-BlockchainSim/
+BlockchainSimulation/
 ├── src/
 │   ├── app/
 │   │   └── App.java
