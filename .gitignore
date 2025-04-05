@@ -1,5 +1,6 @@
 # Archivos generados por el compilador
 *.class
+bin/
 
 # Logs
 *.log
