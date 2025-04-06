@@ -57,12 +57,17 @@ cd src
 javac app/App.java blockchain/Bloque.java blockchain/Blockchain.java
 java app.App
 
+```
+
+---
+
 ### 💻 Run from VSCode
+
 1. Open the project folder in VSCode.
 
 2. Open the App.java file.
 
-3. lick on the Run button (▶️) or press F5.
+3. Click on the Run button (▶️) or press F5.
 
 ---
 
