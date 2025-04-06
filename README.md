@@ -1,11 +1,10 @@
+# 🧱 Blockchain Simulation in Java (with Singly Linked Lists)
 
-# 🧱 Simulación de Blockchain en Java (con Listas Enlazadas Simples)
-
-Este proyecto es una **simulación básica de una blockchain** desarrollada en Java utilizando **listas enlazadas simples**. Se pueden realizar operaciones CRUD-S (Crear, Leer, Actualizar, Eliminar y Buscar) sobre los bloques de la cadena, lo que permite comprender los fundamentos de una estructura de datos dinámica simulando una red blockchain.
+This project is a **basic simulation of a blockchain** developed in Java using **singly linked lists**. It allows performing CRUD-S operations (Create, Read, Update, Delete, and Search) on the chain’s blocks, helping to understand the fundamentals of a dynamic data structure that simulates a blockchain network.
 
 ---
 
-## 👨‍💻 Autores
+## 👨‍💻 Authors
 
 - David Lopez Barbosa - 0222320001  
 - Leon Alejandro Orrego Bello - 0222321002  
@@ -13,8 +12,7 @@ Este proyecto es una **simulación básica de una blockchain** desarrollada en J
 
 ---
 
-## 📁 Estructura del Proyecto
-
+## 📁 Project Structure
 ```
 BlockchainSimulation/
 ├── src/
@@ -28,116 +26,113 @@ BlockchainSimulation/
 
 ---
 
-## 🧠 Concepto
+## 🧠 Concept
 
-Una blockchain es una estructura de datos donde cada bloque contiene un conjunto de datos, un identificador y el hash del bloque anterior. En esta simulación, utilizamos una **lista enlazada simple**, donde cada nodo representa un bloque de la cadena.
-
----
-
-## ⚙️ Funcionalidades
-
-- 📦 **Añadir Bloques**: Inserta nuevos bloques con datos personalizados.
-- 🔍 **Buscar Bloques**: Permite buscar un bloque por su hash.
-- 📋 **Mostrar Cadena Completa**: Visualiza todos los bloques existentes.
-- ✏️ **Actualizar Datos de un Bloque**: Modifica los datos de un bloque existente y actualiza sus hashes.
-- ❌ **Eliminar un Bloque**: Elimina un bloque por su ID, reorganizando la cadena y recalculando hashes.
+A blockchain is a data structure where each block contains a set of data, an identifier, and the hash of the previous block. In this simulation, we use a **singly linked list**, where each node represents a block in the chain.
 
 ---
 
-## 🚀 Instrucciones de Ejecución
+## ⚙️ Features
 
-### ✅ Requisitos
+- 📦 **Add Blocks**: Inserts new blocks with custom data.
+- 🔍 **Search Blocks**: Allows searching for a block by its hash.
+- 📋 **Display Full Chain**: Shows all existing blocks.
+- ✏️ **Update Block Data**: Modifies the data of an existing block and updates its hashes.
+- ❌ **Delete a Block**: Deletes a block by its ID, reorganizing the chain and recalculating hashes.
 
-- JDK 17 o superior
-- VSCode (recomendado con Java Extension Pack)
+---
 
-### 🛠️ Compilar y Ejecutar desde Terminal
+
+## 🚀 Run Instructions
+
+### ✅ Requirements
+
+- JDK 17 or higher
+- VSCode (recommended with Java Extension Pack)
+
+### 🛠️ Compile and Run from Terminal
 
 ```bash
 cd src
 javac app/App.java blockchain/Bloque.java blockchain/Blockchain.java
 java app.App
-```
 
-### 💻 Ejecutar desde VSCode
+### 💻 Run from VSCode
+1. Open the project folder in VSCode.
 
-1. Abre la carpeta del proyecto en VSCode.
-2. Abre el archivo `App.java`.
-3. Haz clic en el botón de **Run** (▶️) o presiona `F5`.
+2. Open the App.java file.
+
+3. lick on the Run button (▶️) or press F5.
 
 ---
 
-## 🧩 Descripción de Clases
+## 🧩 Class Descriptions
 
-### `Bloque.java`
+### `Block.java`
 
-Representa un bloque individual.
+Represents an individual block.
 
-**Atributos:**
-- `int idBloque`
-- `String datos`
-- `int hashAnterior`
-- `int hashActual`
-- `Bloque siguiente`
+**Attributes:**
+- `int blockId`
+- `String transactionData`
+- `int previousHash`
+- `int currentHash`
+- `Bloque nextBlock`
 
-**Métodos importantes:**
-- `calcularHash()`: simula un hash usando `Objects.hash(idBloque, 1000)`
-- `mostrarBloque()`: imprime los datos del bloque
+**Key Methods:**
+- `calculateHash()`: Simulates a hash using `Objects.hash( blockId, transactionData, previousHash);`
+- `displayBlockInfo()`: prints the block’s data
 
 ---
 
 ### `Blockchain.java`
 
-Contiene la lógica de la lista enlazada que simula la blockchain.
+Contains the logic of the linked list simulating the blockchain.
 
-**Atributos:**
-- `Bloque primerBloque`
+**Attributes:**
 
-**Métodos principales:**
-- `añadirBloque(String datos)`
-- `mostrarBlockchain()`
-- `buscarBloque(int hash)`
-- `actualizarBloque(int id, String nuevosDatos)`
-- `eliminarBloque(int id)`
+
+**Main Methods:**
+
 
 ---
 
 ### `App.java`
 
-Clase principal con el método `main()` que permite probar el funcionamiento de la blockchain.
+Main class with the main() method that tests the blockchain functionality.
 
 ---
 
-## 📌 Ejemplo de Salida
+## 📌 Example Output
 
 ```
-La Blockchain completa:
-Bloque 1:
-Datos: Alice envía 10 BTC a Bob
-Hash anterior: None
-Hash actual: 2125378565
+Full Blockchain:
+Block 1:
+Data: Alice sends 10 BTC to Bob
+Previous hash: None
+Current hash: 2125378565
 
-Bloque 2:
-Datos: Bob envía 5 BTC a Charlie
-Hash anterior: 2125378565
-Hash actual: 2125378566
+Block 2:
+Data: Bob sends 5 BTC to Charlie
+Previous hash: 2125378565
+Current hash: 2125378566
 
 ...
 ```
 
 ---
 
-## 📥 Posibles Mejoras Futuras
+## 📥 Possible Future Improvements
 
-- Implementación de un algoritmo real de hashing (ej. SHA-256)
-- Validación de integridad de la cadena
-- Interfaz gráfica o API REST
-- Almacenamiento persistente en archivos o base de datos
+- Implementation of a real hashing algorithm (e.g., SHA-256)
+- Blockchain integrity validation
+- Graphical interface or REST API
+- Persistent storage in files or database
 
 ---
 
-## 📘 Materia
+## 📘 Subject
 
-**Estructura de Datos** – Simulación de listas enlazadas y estructuras dinámicas aplicadas a blockchain.
+**Data Structures** – Simulation of linked lists and dynamic structures applied to blockchain.
 
 ---
