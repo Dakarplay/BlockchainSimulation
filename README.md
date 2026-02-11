@@ -13,7 +13,8 @@ This project is a **basic simulation of a blockchain** developed in Java using *
 ---
 
 ## 📁 Project Structure
-```
+
+```bash
 BlockchainSimulation/
 ├── src/
 │   ├── app/
@@ -42,7 +43,6 @@ A blockchain is a data structure where each block contains a set of data, an ide
 
 ---
 
-
 ## 🚀 Run Instructions
 
 ### ✅ Requirements
@@ -54,7 +54,7 @@ A blockchain is a data structure where each block contains a set of data, an ide
 
 ```bash
 cd src
-javac app/App.java blockchain/Bloque.java blockchain/Blockchain.java
+javac app/App.java
 java app.App
 
 ```
@@ -78,6 +78,7 @@ java app.App
 Represents an individual block.
 
 **Attributes:**
+
 - `int blockId`
 - `String transactionData`
 - `int previousHash`
@@ -85,6 +86,7 @@ Represents an individual block.
 - `Bloque nextBlock`
 
 **Key Methods:**
+
 - `calculateHash()`: Simulates a hash using `Objects.hash( blockId, transactionData, previousHash);`
 - `displayBlockInfo()`: prints the block’s data
 
@@ -96,9 +98,7 @@ Contains the logic of the linked list simulating the blockchain.
 
 **Attributes:**
 
-
 **Main Methods:**
-
 
 ---
 
@@ -110,7 +110,8 @@ Main class with the main() method that tests the blockchain functionality.
 
 ## 📌 Example Output
 
-```
+```bash
+
 Full Blockchain:
 Block 1:
 Data: Alice sends 10 BTC to Bob
