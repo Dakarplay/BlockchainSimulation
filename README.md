@@ -6,9 +6,7 @@ This project is a **basic simulation of a blockchain** developed in Java using *
 
 ## 👨‍💻 Authors
 
-- David Lopez Barbosa - 0222320001  
-- Leon Alejandro Orrego Bello - 0222321002  
-- Dago David Palmera Navarro - 0222321003  
+- Dago David Palmera Navarro
 
 ---
 
