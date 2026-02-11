@@ -1,90 +1,88 @@
 package blockchain;
 
-import java.util.Objects;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+/**
+ * Represents a single block in the blockchain.
+ */
 public class Block {
 
-    // Class Block Attributes
-    private int blockId;
-    private String transactionData;
-    private int previousHash;
-    private int currentHash;
-    private Block nextBlock;
+    private int id;
+    private String data;
+    private String previousHash;
+    private String currentHash;
+    private Block next;
 
-    // Construct Method Block
-    public Block(int blockId, String transactionData, int previousHash) {
-        
-        this.blockId = blockId;
-        this.transactionData = transactionData;
+    public Block(int id, String data, String previousHash) {
+        this.id = id;
+        this.data = data;
         this.previousHash = previousHash;
         this.currentHash = calculateHash();
-        this.nextBlock = null;
+        this.next = null;
     }
 
-    private int calculateHash(){
+    public String calculateHash() {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            String input = id + data + previousHash;
+            byte[] hashBytes = digest.digest(input.getBytes(StandardCharsets.UTF_8));
 
-        return Objects.hash(blockId, transactionData, previousHash);
-    }
-
-    public void displayBlockInfo(){
-
-        System.out.println("Block ID: + blockId");
-        System.out.println("Transcation: " + transactionData);
-
-        
-        if (previousHash == -1) {
-            System.out.println("Hash anterior: None");
-        } else {
-            System.out.println("Hash anterior: " + previousHash);
+            StringBuilder hex = new StringBuilder();
+            for (byte b : hashBytes) {
+                hex.append(String.format("%02x", b));
+            }
+            return hex.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("SHA-256 not available");
         }
+    }
 
+    public void updateHash() {
+        this.currentHash = calculateHash();
+    }
+
+    public void printBlock() {
+        System.out.println("\nBlock ID: " + id);
+        System.out.println("Data: " + data);
+        System.out.println("Previous Hash: " + previousHash);
         System.out.println("Current Hash: " + currentHash);
-
     }
 
-    // Getters and setters
-    // ==================================
-    public int getBlockId(){
-        return blockId;
+    public int getId() {
+        return id;
     }
 
-    public void setBlock(int blockId){
-        this.blockId = blockId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    // ==================================
-
-    public String getTransactionData(){
-        return transactionData;
-    }
-
-    public void setTransactionData(String transactionData){
-        this.transactionData = transactionData;
-    }
-
-    // ==================================
-
-    public int getPreviousHash() {
+    public String getPreviousHash() {
         return previousHash;
     }
 
-    public void setPreviousHash(int previousHash) {
+    public void setPreviousHash(String previousHash) {
         this.previousHash = previousHash;
     }
 
-    // ==================================
-
-    public int getCurrentHash() {
+    public String getCurrentHash() {
         return currentHash;
     }
 
-    // ==================================
-
-    public Block getNextBlock() {
-        return nextBlock;
+    public String getData() {
+        return data;
     }
 
-    public void setNextBlock(Block nextBlock) {
-        this.nextBlock = nextBlock;
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public Block getNext() {
+        return next;
+    }
+
+    public void setNext(Block next) {
+        this.next = next;
     }
 }
